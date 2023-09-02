@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce || Login Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+<nav class="navbar header bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img class="img img-fluid logo" src="https://broadwayinfosys.com/uploads/logo/1667276403.new_broadway_logo.svg" alt="">
+      </a> 
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Category1</a></li>
+              <li><a class="dropdown-item" href="#">Category 2</a></li>
+              <li><a class="dropdown-item" href="#">Category 3</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#" >About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="#" >Contact Us</a>
+          </li>
+        </ul>
+        <form class="d-flex me-5" role="search">
+            <div class="input-group mb-3 mt-4">
+                <input type="text" class="form-control " placeholder="Search....." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+            </div>  
+          <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button> -->
+        </form>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#">
+                   <i class="fa fa-shopping-cart "></i>(0)
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#">Login</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#">Register</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="banner-wrapper mb-3">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./image/banner1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/banner2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./image/banner3.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>  
+      </div>
+
+  </section>
+
+  <div class="container-fluid mb-3">
+     <div class="row">
+        <div class="col-12">
+            <a href="/">
+                <img src="./image/ads.jpg" class="img img-fluid">
+            </a>
+        </div>
+
+     </div>
+  </div>
+
+  <div class="container-fluid bg-light mb-3">
+    <div class="row">
+        <div class="col-12">
+            <h4>
+                Categories
+            </h4>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat1.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat2.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat3.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <a href="/category-list.html"><img src="./image/cat1.jpg" class="card-img-top" alt="First Category"></a>
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat2.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat3.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat1.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat2.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat3.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat1.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat2.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+        <div class="col-sm-6 col-md-3 col-lg-2 mb-3">
+            <div class="card" >
+                <img src="./image/cat3.jpg" class="card-img-top" alt="First Category">
+               
+                  <h5 class="card-title text-center p-1">Category title</h5>
+                  
+                
+              </div> 
+        </div>
+
+    </div>
+
+  </div>
+
+  <div class="container-fluid mb-3">
+    <div class="row">
+       <div class="col-12">
+           <a href="/">
+               <img src="./image/ads.jpg" class="img img-fluid">
+           </a>
+       </div>
+
+    </div>
+ </div>
+
+ <div class="container-fluid mb-3 bg-light py-2">
+    <div class="row">
+       <div class="col-12">
+          <h4>Product For You</h4>
+          <a href="/products.html" class="btn btn-link float-end">
+            View All
+          </a> 
+       </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="card">
+                <a href="/product-detail.html"><img src="./image/product1.jpg" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title" >
+                        <a href="/product-detail.html">HDMI to usb box bjsa ashdjsahd sad s ds ds ds d sds</a>
+                    </h5>
+                    <p>
+                        <span class="me-2">Npr.2000</span>
+                        <del class="text-danger">Npr. 1000</del>
+                    </p>
+                  
+                </div>
+              </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+            <div class="card">
+                <a href="/product-detail.html"><img src="./image/product1.jpg" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title" >
+                        <a href="/product-detail.html">HDMI to usb box bjsa ashdjsahd sad s ds ds ds d sds</a>
+                    </h5>
+                    <p>
+                        <span class="me-2">Npr.2000</span>
+                        <del class="text-danger">Npr. 1000</del>
+                    </p>
+                  
+                </div>
+              </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+            <div class="card">
+                <a href="/product-detail.html"><img src="./image/product1.jpg" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title" >
+                        <a href="/product-detail.html">HDMI to usb box bjsa ashdjsahd sad s ds ds ds d sds</a>
+                    </h5>
+                    <p>
+                        <span class="me-2">Npr.2000</span>
+                        <del class="text-danger">Npr. 1000</del>
+                    </p>
+                  
+                </div>
+              </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-3">
+            <div class="card">
+                <a href="/product-detail.html"><img src="./image/product1.jpg" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title" >
+                        <a href="/product-detail.html">HDMI to usb box bjsa ashdjsahd sad s ds ds ds d sds</a>
+                    </h5>
+                    <p>
+                        <span class="me-2">Npr.2000</span>
+                        <del class="text-danger">Npr. 1000</del>
+                    </p>
+                  
+                </div>
+              </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-3">
+            <div class="card">
+                <a href="/product-detail.html"><img src="./image/product1.jpg" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title" >
+                        <a href="/product-detail.html">HDMI to usb box bjsa ashdjsahd sad s ds ds ds d sds</a>
+                    </h5>
+                    <p>
+                        <span class="me-2">Npr.2000</span>
+                        <del class="text-danger">Npr. 1000</del>
+                    </p>
+                  
+                </div>
+              </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-3">
+            <div class="card">
+                <a href="/product-detail.html"><img src="./image/product1.jpg" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h5 class="card-title" >
+                        <a href="/product-detail.html">HDMI to usb box bjsa ashdjsahd sad s ds ds ds d sds</a>
+                    </h5>
+                    <p>
+                        <span class="me-2">Npr.2000</span>
+                        <del class="text-danger">Npr. 1000</del>
+                    </p>
+                  
+                </div>
+              </div>
+        </div>
+
+        
+
+
+
+  <nav class="navbar  bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <a class="navbar-brand" href="#">
+                <img class="img footer-logo img-fluid " src="https://broadwayinfosys.com/uploads/logo/1667276403.new_broadway_logo.svg"/>
+            </a>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque velit ipsam, minima necessitatibus ipsa possimus blanditiis excepturi aperiam. A impedit fugit ducimus itaque laudantium inventore dolorum autem eligendi ratione! Est!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quasi sapiente veniam ullam quidem minus blanditiis. Esse consectetur quos quisquam maiores ipsa laudantium nobis explicabo numquam, quasi laboriosam similique. Fugiat!
+
+            </p>
+         </div>
+
+         <div class="col-sm-12 col-md-4">
+             <h4>Quick Action</h4>
+             <hr>
+             <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Pricay Policy</a>
+                <a href="#" class="list-group-item list-group-item-action">Terms and conditions</a>
+                <a href="#" class="list-group-item list-group-item-action">Register</a>
+                <a href="#" class="list-group-item list-group-item-action">Login</a>
+                <a href="#" class="list-group-item list-group-item-action">Contact Us</a>
+                <a href="#" class="list-group-item list-group-item-action">About Us</a>
+              </div>
+         </div>
+         <div class="col-sm-12 col-md-4">
+            <h4>Conect with us </h4>
+            <hr>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.029932731022!2d85.3422330754431!3d27.685469726456226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198d99470043%3A0x167d008efb47d64c!2sBroadway%20Infosys!5e0!3m2!1sen!2snp!4v1692691791833!5m2!1sen!2snp" width="350" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+         </div>
+      </div>
+    </div>
+  </nav>
+
+  
+  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

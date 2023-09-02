@@ -1,0 +1,118 @@
+- Installing yarn 
+    - npm i yarn --global 
+- Creating a vite project using yarn 
+    yarn create vite projectName --template react
+- Folder structure 
+
+    node_modules/
+    public/ 
+        - only the assets if needed 
+    src/    
+        - everyting in here
+    index.html 
+        ....
+        - <div id="root"></div>
+        - <script type="module" src="/src/main.js"></script>
+        ....
+- to run 
+    yarn dev
+- to add more packages in the project 
+    yarn add <package name>
+- to install all the dependencies 
+    yarn 
+
+===> to represent the UI/UX
+    - UI => User interface 
+    - UX => User Experience
+
+===> Component 
+    - Page 
+    - Component
+
+=> Not suitable for SEO 
+    -> SSR (react-helmet package )
+
+===> React based Framework 
+    - nextjs
+
+----->  Facebook 
+    - community 
+    
+
+- Component 
+    - types 
+        - Stateful
+        - Stateless
+- State and Props 
+
+===> url change 
+    -> Page (component) HOC
+        -> components LOC
+
+
+HOC
+    Higher Order components
+
+LOC
+    Lower Order Components 
+
+Component 
+    component 
+        component (HOC)
+            component (LOC)
+            
+SPA (Single Page Application)
+Dynamic Web (Home, Admin Portal(CMS))
+
+Landing 
+    Menu 
+        Content 
+            Banner 
+            Category List 
+            Brand List 
+            Product List
+    Footer
+
+Login 
+    Menu 
+        login 
+            Login Form 
+    Footer
+
+
+Mounting 
+    - loading Phase 
+
+    constructor()
+        - props initialize 
+        - state initialize
+        - Mounting phase any codebase execture 
+    render()
+        - view return 
+    componentDidMount()
+        - Netowrk initial
+            - change State data
+
+Updating 
+    - after load and all the changes
+    render()
+        -> 2nd time 
+    componentDidUpdate()
+        -> after every render method call 
+
+Unmounting
+    - switching of a component
+    - componentWillUnmount()
+
+Web Hook 
+    special functions given by react for the feature acheivement
+    - Rule 
+        - Name always starts with 'use....'
+        - hook functions are always called at top level 
+    types: 
+        a. State Hook 
+        b. Effect Hook 
+        
+        c. Reference hook 
+        d. Performance hook 
+        e. Custom Hook 
