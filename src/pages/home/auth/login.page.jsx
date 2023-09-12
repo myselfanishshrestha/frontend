@@ -7,11 +7,14 @@ import axios from "axios";
 import axiosInstance from "../../../config/axios.config";
 import authSvc from "./auth.service";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { setLoggedInUser } from "../../../reducers/user.reducers";
 const LoginPage =  () => {
     const [credentials, setCredentials] = useState({
         email: null,
         password: null
     });
+    const dispatch = useDispatch();
     const [errors, setErrors] = useState();
     const navigate = useNavigate()
 
@@ -74,12 +77,14 @@ const LoginPage =  () => {
                         localStorage.setItem('token', response.data.data.accessToken)
                         localStorage.setItem('refreshToken', response.data.data.refreshToken)
                         localStorage.setItem("user", JSON.stringify( response.data.data.userDetail))
+                        dispatch(setLoggedInUser(response.data.data.userDetail))
 
                         toast.success("You are sucessfully logged in")
                         navigate("/"+ response.data.data.userDetail.role) 
 
 
              } catch (exception ) { 
+                toast.error(exception.data.msg)
                 console.log(exception)
 
              }

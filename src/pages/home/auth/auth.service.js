@@ -31,7 +31,7 @@ class AuthService extends HttpService{
             throw exception;
         }
     }
-    registser = async (data) => {
+    register = async (data) => {
         try {
             let response = await this.postRequest(
                 '/v1/auth/register',

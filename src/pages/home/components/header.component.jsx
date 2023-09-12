@@ -1,10 +1,33 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Logo } from "../../../components/logo.component"
+import { useDispatch, useSelector } from "react-redux";
+import authSvc from "../auth/auth.service";
+import { logoutUser } from "../../../reducers/user.reducers";
+
+
 
 const HomeHeader = ()=>{
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  // let loggedInuser = JSON.parse(localStorage.getItem('user')) ?? null
+ let loggedInuser = useSelector((rootStore) =>{
+ 
+  return rootStore.User?.loggedInUser
+ }) 
+
+const handleLogout =async (e)=>{
+  try{
+      e.preventDefault()
+      dispatch(logoutUser());
+      navigate("/")
+  } catch (exception){
+      console.log(exception)
+  }
+}
     return <>
+
     <Navbar
         className="bg-body-tertiary navClass"
         expand={"lg"}
@@ -90,6 +113,25 @@ const HomeHeader = ()=>{
                   <i className="fa fa-cart-shopping"></i>(0)
                 </a>
               </li>
+
+
+              {
+
+                loggedInuser ? <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to={'/'+loggedInuser.role}>
+                    {loggedInuser.name}
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                <NavLink  onClick={handleLogout} className="nav-link" to="/login">
+                  Logout
+                  </NavLink>
+                </li>
+                </> : <>
+
+
+              
               <li className="nav-item">
                 <NavLink className="nav-link" to="/login">
                   Login
@@ -101,6 +143,8 @@ const HomeHeader = ()=>{
                   Register
               </NavLink>
               </li>
+                </>
+              }   
             </ul>
           </Navbar.Collapse>
         </Container>

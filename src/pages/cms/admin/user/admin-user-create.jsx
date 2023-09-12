@@ -1,104 +1,110 @@
+import { Breadcrumb, Button, Card, Col, Container, Form, FormControl, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { FaPaperPlane, FaPlus, FaTrash } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
-import * as Yup from "yup"
-import {yupResolver} from  "@hookform/resolvers/yup"
-import axios from "axios";
-import axiosInstance from "../../../config/axios.config";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { userSvc } from ".";
 import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
-import authSvc from "./auth.service";
-
-
-const RegisterPage = () => {
+import { useState } from "react";
+import authSvc from "../../../home/auth/auth.service";
+const AdminUserCreate = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false );
 
-const registerSchema = Yup.object({
-    name: Yup.string().required(),
-    email: Yup.string().email().required(),
-    phone: Yup.string().required(),
-    role: Yup.string().matches(/customer|seller/),
-    address: Yup.object({
-        billingAddress: Yup.string(), 
-        shippingAddress: Yup.string()
-    }) 
-    
-})
-const {register,required, handleSubmit, watch, formState:{errors}, setValue} = useForm({
-    resolver: yupResolver(registerSchema)
-});
+    const userSchema  = Yup.object({
+        
+        name: Yup.string().required(),
+        email: Yup.string().email().required(),
+        phone: Yup.string().required(),
+        role: Yup.string().matches(/customer|seller/),
+        address: Yup.object({
+            billingAddress: Yup.string(), 
+            shippingAddress: Yup.string()
+        }) 
+    });
+    const {register,handleSubmit,formState: {errors},setError, setValue, watch} = useForm({
+        resolver: yupResolver(userSchema)
+    })
+    const submitEvent = async (data)=>{
+        try{
+            setLoading(true);
+            if (!data.image){
+                setError('image', {message: "image is required"})
+            } else {
+                data.image = data.image[0]
+                let response = await authSvc.register(data)
+                toast.success(response.data.msg) 
+                navigate("/admin/users")
+            }
 
-const [loading, setLoading]= useState(false);
-const onSubmit = async (data) =>{
-    // console.log(data);
-    //api submit
-    try{
-        setLoading(true);
+        }catch (exception){
+            toast.error(exception.data?.msg)
 
-//         let response = await axios.post(
-//             'http://localhost:3005/api/v1/auth/register',
-//             data,
-//             {
-//                 headers:{
-//                     "Content-type" : "multipart/form-data",
-//                     "Accept": "application/json"
-// ,
-//                 }
-//             }
-//             )
-
-data.image = data.image[0];
-
-//file uploading in react
-// let formData = new FormData();
-
-// formData.append("image", data.image, data.image.name)
-// formData.append("name", data.name);
-// formData.append("email", data.email);
-// formData.append("role", data.role);
-// formData.append("phone", data.phone);
-// formData.append("address", data.address);
-
-// let response = await axiosInstance.post("/v1/auth/register", data, {
-//     headers: {
-//         "Content-Type": "multipart/form-data"
-//     }
-// })
-let response = await authSvc.registser(data)
-    toast.success("Your account has bbemn registered. check your email for activation link")
-    navigate("/login");
-
-
-    } catch(exception) {
-        console.log(exception)
-    } finally {
-        setLoading(false);
-    }
-} 
-    useEffect(()=>{
-        let token = localStorage.getItem('token');
-        let user = JSON.parse(localStorage.getItem('user'))
-        if (token && user){
-            toast.info("you are already logged in")
-            navigate("/"+user.role)
+        } finally{
+            setLoading(false);
         }
+        
+    }
 
+    const handleImage = (e) => {
+        let image =e.target.files[0];
+        
 
+        //valideate
+        let ext =( image.name.split('.')).pop();
+        let size = image.size;
+        let allow=['jpg', 'jpeg','png', 'svg']
+        if(allow.includes(ext.toLowerCase())){
+            if(size<=3000000){
+                setValue('image', image)
 
-    },[])
+            }else{
+                setError("image", "file size should be less than 3 mb")
+            }
 
+        }else {
+            setError("image", "image format not supported")
 
-// console.log(errors);
-
-     
-    return(
+        }
+    }
+    console.log(errors)
+  return (
     <>
-         <div className="container my-5 ">
-        <div className="row">
-            <div className="col-sm-12 offset-md-2 col-md-8 login-wrapper py-3">
-                <h4 className="text-center">Register Page</h4>
-                
+      <Container className="px-4" fluid>
+        <h1 className="mt-4">User create </h1>
+        <Breadcrumb className="mb-4">
+          <li className="breadcum-item">
+            <NavLink to="/admin">Dashboard</NavLink>
+          </li>
+          <li className="breadcrumb-item">
+            <NavLink to="/admin/user">User List</NavLink>
+          </li>
+          <li className="breadcrumb-item active">user form</li>
+        </Breadcrumb>
+        <Card className="mb-4">
+          <Card.Header>
+            <Container>
+              <Row>
+                <Col sm={12} md={6}>
+                  <h4>User List</h4>
+                </Col>
+                <Col sm={12} md={6}>
+                  <NavLink
+                    className={"btn btn-sm btn-success float-end"}
+                    to="/admin/users/create" >
+                    <FaPlus /> Add User
+                  </NavLink>
+                </Col>
+              </Row>
+            </Container>
+          </Card.Header>
+          <Card.Body>
 
-                <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <Container>
+                <Row>
+                    <Col sm={12}>
+                    <form className="form" onSubmit={handleSubmit(submitEvent)}>
                     <div className="form-group row mb-3"> 
                         <label htmlFor="" className="col-sm-3">Name: {" "}</label>
                         <div className="col-sm-9">
@@ -230,18 +236,15 @@ let response = await authSvc.registser(data)
                     </div>
 
                  </form>
+                    </Col>
+                </Row>
+            </Container>
 
-                <p>Or</p>
-                <NavLink to="/forget-password">Forgot Password?</NavLink>
-                <span>Or</span>
-                <NavLink to="/login">Login?</NavLink>
-
-                
-                
-                
-            </div>
-        </div>
-      </div>
-    </>)
-}
-export default RegisterPage;
+          </Card.Body>
+        </Card>
+      </Container>
+      
+    </>
+  );
+};
+export default AdminUserCreate;
