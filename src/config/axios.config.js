@@ -18,7 +18,7 @@ axiosInstance.interceptors.response.use(
     (reject) => {
         if (reject.response.status === 401){
             localStorage.removeItem("token")
-            localStorag.removeItem('user')
+            localStorage.removeItem('user')
             localStorage.removeItem("refreshToken")
             toast.error("please login first")
             window.location.href = "/login "

@@ -180,6 +180,7 @@ const AdminProductCreate = () => {
                           options={listOfCat}
                           className="basic-multi-select"
                           classNamePrefix="select"
+                          {...register('categories', {required: true})}
                         />
 
                         <span className="text-danger">
@@ -202,7 +203,7 @@ const AdminProductCreate = () => {
                           onChange={(event, editor) => {
                             const data = editor.getData();
                             setValue("description", data);
-                            console.log({ event, editor, data });
+                           
                           }}
                         />
 
